@@ -6,12 +6,17 @@ protocol NetworkRouter: class {
   
   func request(_ route: Endpoint, parameters: HTTPParametersConvertable?,
                completion: @escaping NetworkRouterCompletion)
+  func cancelRequest()
 }
 
 final class NetworkRouterImpl: NetworkRouter {
   
   private var task: URLSessionTask?
   private let timeoutInterval = 10.0
+  
+  func cancelRequest() {
+    task?.cancel()
+  }
   
   func request(_ route: Endpoint, parameters: HTTPParametersConvertable?,
                completion: @escaping NetworkRouterCompletion) {

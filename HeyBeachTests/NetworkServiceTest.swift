@@ -74,7 +74,7 @@ class NetworkServiceTest: XCTestCase {
   func testFetchImagesSuccess() {
     let expectation = XCTestExpectation(description: "it should fetch list of images")
 
-    service.fetchImages(page: 0) { result in
+    service.fetchImagesList(page: 0) { result in
       switch result {
       case let .success(images):
         XCTAssertTrue(images.count > 0)
@@ -84,6 +84,24 @@ class NetworkServiceTest: XCTestCase {
       expectation.fulfill()
     }
 
+    wait(for: [expectation], timeout: requestTimeout)
+  }
+  
+  func testFetchImageDataSuccess() {
+    router.responseData = Data()
+    let expectation = XCTestExpectation(description: "it should fetch image data")
+    let url = "images/b09a4caf-014c-4003-85a4-bf520206ff33.png"
+    
+    service.downloadImage(url: url) { result in
+      switch result {
+      case let .success(data):
+        XCTAssertNotNil(data)
+      case let .failure(error):
+        XCTFail(error.localizedDescription)
+      }
+      expectation.fulfill()
+    }
+    
     wait(for: [expectation], timeout: requestTimeout)
   }
 }

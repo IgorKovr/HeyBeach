@@ -8,6 +8,10 @@ struct NetworkService {
     self.networkRouter = networkRouter
   }
   
+  func cancelRequest() {
+    networkRouter.cancelRequest()
+  }
+  
   private func request<T>(endpoint: Endpoint,
                           parameters: HTTPParametersConvertable? = nil,
                           completion: @escaping (NetworkResult<T>) ->()) where T : Decodable {
@@ -67,6 +71,34 @@ struct NetworkService {
       completion(.success(AuthResponse(token: token)))
     }
   }
+  
+  private func dataRequest(endpoint: Endpoint,
+                           parameters: HTTPParametersConvertable? = nil,
+                           completion: @escaping (NetworkResult<Data>) ->()) {
+    networkRouter.request(endpoint, parameters: parameters) { (data, response, error) in
+      
+      // Check for Network error
+      guard error == nil else {
+        completion(.failure(.network))
+        return
+      }
+      
+      // Check for invalid response from the server
+      guard let response = (response as? HTTPURLResponse),
+        response.statusCode == 200 else {
+          completion(.failure(.api))
+          return
+      }
+      
+      // Check for empty response
+      guard let data = data else {
+        completion(.failure(.noData))
+        return
+      }
+      
+      completion(.success(data))
+    }
+  }
 }
 
 extension NetworkService {
@@ -83,8 +115,13 @@ extension NetworkService {
                 completion: completion)
   }
 
-  func fetchImages(page: UInt, completion: @escaping (NetworkResult<[ImageResponse]>) ->()) {
+  func fetchImagesList(page: UInt, completion: @escaping (NetworkResult<[ImageResponse]>) ->()) {
     request(endpoint: .beaches(page: page),
             completion: completion)
+  }
+  
+  func downloadImage(url: String, completion: @escaping (NetworkResult<Data>) ->()) {
+    dataRequest(endpoint: .image(url: url),
+                completion: completion)
   }
 }
