@@ -3,6 +3,7 @@ import Foundation
 struct ImageResponse {
 
   let url: String
+  let name: String
   let width: String
   let height: String
 }

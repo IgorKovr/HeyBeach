@@ -1,7 +1,7 @@
 import XCTest
 @testable import HeyBeach
 
-class EndpointTest: XCTestCase {
+final class EndpointTest: XCTestCase {
   
   private var endpoint: Endpoint!
   

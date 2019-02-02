@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1426CC22206579300B93638 /* BeachCellViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1426CC12206579300B93638 /* BeachCellViewMock.swift */; };
 		B191E1012205FE7400FD2C59 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E1002205FE7400FD2C59 /* AuthResponse.swift */; };
 		B191E1052206328F00FD2C59 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E1042206328F00FD2C59 /* HTTPMethod.swift */; };
+		B191E1082206441900FD2C59 /* BeachCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E1072206441900FD2C59 /* BeachCellView.swift */; };
+		B191E10C2206448E00FD2C59 /* BeachCellViewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E10A2206448E00FD2C59 /* BeachCellViewImpl.swift */; };
+		B191E10D2206448E00FD2C59 /* BeachCellViewImpl.xib in Resources */ = {isa = PBXBuildFile; fileRef = B191E10B2206448E00FD2C59 /* BeachCellViewImpl.xib */; };
+		B191E10F220646CA00FD2C59 /* BeachCellRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E10E220646CA00FD2C59 /* BeachCellRepository.swift */; };
+		B191E11122064A6700FD2C59 /* BeachCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E11022064A6700FD2C59 /* BeachCellPresenter.swift */; };
+		B191E113220651FC00FD2C59 /* BeachCellPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E112220651FC00FD2C59 /* BeachCellPresenterTest.swift */; };
+		B191E119220653F500FD2C59 /* BeachCellRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E118220653F500FD2C59 /* BeachCellRepositoryMock.swift */; };
 		EA685FBA220488D3003504F1 /* NetworkRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685FB4220488D3003504F1 /* NetworkRouterMock.swift */; };
 		EA685FBD220488D3003504F1 /* ImageListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = EA685FB8220488D3003504F1 /* ImageListResponse.json */; };
 		EA685FC32204AE29003504F1 /* AuthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685FC22204AE29003504F1 /* AuthParameters.swift */; };
@@ -39,8 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1426CC12206579300B93638 /* BeachCellViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellViewMock.swift; sourceTree = "<group>"; };
 		B191E1002205FE7400FD2C59 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		B191E1042206328F00FD2C59 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		B191E1072206441900FD2C59 /* BeachCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellView.swift; sourceTree = "<group>"; };
+		B191E10A2206448E00FD2C59 /* BeachCellViewImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellViewImpl.swift; sourceTree = "<group>"; };
+		B191E10B2206448E00FD2C59 /* BeachCellViewImpl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeachCellViewImpl.xib; sourceTree = "<group>"; };
+		B191E10E220646CA00FD2C59 /* BeachCellRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellRepository.swift; sourceTree = "<group>"; };
+		B191E11022064A6700FD2C59 /* BeachCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellPresenter.swift; sourceTree = "<group>"; };
+		B191E112220651FC00FD2C59 /* BeachCellPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellPresenterTest.swift; sourceTree = "<group>"; };
+		B191E118220653F500FD2C59 /* BeachCellRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellRepositoryMock.swift; sourceTree = "<group>"; };
 		EA685FB4220488D3003504F1 /* NetworkRouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouterMock.swift; sourceTree = "<group>"; };
 		EA685FB8220488D3003504F1 /* ImageListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageListResponse.json; sourceTree = "<group>"; };
 		EA685FC22204AE29003504F1 /* AuthParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParameters.swift; sourceTree = "<group>"; };
@@ -82,12 +98,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA685FB2220488D3003504F1 /* Mocks */ = {
+		B191E1022206316600FD2C59 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				EA685FB4220488D3003504F1 /* NetworkRouterMock.swift */,
+				B191E1032206319100FD2C59 /* BeachesList */,
 			);
-			path = Mocks;
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B191E1032206319100FD2C59 /* BeachesList */ = {
+			isa = PBXGroup;
+			children = (
+				B191E106220641AF00FD2C59 /* BeachCell */,
+			);
+			path = BeachesList;
+			sourceTree = "<group>";
+		};
+		B191E106220641AF00FD2C59 /* BeachCell */ = {
+			isa = PBXGroup;
+			children = (
+				B191E1072206441900FD2C59 /* BeachCellView.swift */,
+				B191E10A2206448E00FD2C59 /* BeachCellViewImpl.swift */,
+				B191E10B2206448E00FD2C59 /* BeachCellViewImpl.xib */,
+				B191E10E220646CA00FD2C59 /* BeachCellRepository.swift */,
+				B191E11022064A6700FD2C59 /* BeachCellPresenter.swift */,
+			);
+			path = BeachCell;
+			sourceTree = "<group>";
+		};
+		B191E1142206537C00FD2C59 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B191E1152206538700FD2C59 /* BeachesList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B191E1152206538700FD2C59 /* BeachesList */ = {
+			isa = PBXGroup;
+			children = (
+				B191E1162206539300FD2C59 /* BeachesCell */,
+			);
+			path = BeachesList;
+			sourceTree = "<group>";
+		};
+		B191E1162206539300FD2C59 /* BeachesCell */ = {
+			isa = PBXGroup;
+			children = (
+				B191E112220651FC00FD2C59 /* BeachCellPresenterTest.swift */,
+				B191E118220653F500FD2C59 /* BeachCellRepositoryMock.swift */,
+				B1426CC12206579300B93638 /* BeachCellViewMock.swift */,
+			);
+			path = BeachesCell;
+			sourceTree = "<group>";
+		};
+		B191E117220653AB00FD2C59 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				EA8027BA22047B4000954120 /* EndpointTest.swift */,
+				EA685FB4220488D3003504F1 /* NetworkRouterMock.swift */,
+				EA8027B822047B3A00954120 /* NetworkServiceTest.swift */,
+				EA685FB7220488D3003504F1 /* Mock Data */,
+			);
+			path = "Network Layer";
 			sourceTree = "<group>";
 		};
 		EA685FB7220488D3003504F1 /* Mock Data */ = {
@@ -128,6 +201,7 @@
 		EA80277322045C5100954120 /* HeyBeach */ = {
 			isa = PBXGroup;
 			children = (
+				B191E1022206316600FD2C59 /* Features */,
 				EA8027AA2204610500954120 /* Network Layer */,
 				EA80277422045C5100954120 /* AppDelegate.swift */,
 				EA80277622045C5100954120 /* ViewController.swift */,
@@ -142,10 +216,8 @@
 		EA80278822045C5200954120 /* HeyBeachTests */ = {
 			isa = PBXGroup;
 			children = (
-				EA685FB7220488D3003504F1 /* Mock Data */,
-				EA685FB2220488D3003504F1 /* Mocks */,
-				EA8027BA22047B4000954120 /* EndpointTest.swift */,
-				EA8027B822047B3A00954120 /* NetworkServiceTest.swift */,
+				B191E117220653AB00FD2C59 /* Network Layer */,
+				B191E1142206537C00FD2C59 /* Features */,
 				EA80278B22045C5200954120 /* Info.plist */,
 			);
 			path = HeyBeachTests;
@@ -266,6 +338,7 @@
 			files = (
 				EA80277F22045C5200954120 /* LaunchScreen.storyboard in Resources */,
 				EA80277C22045C5200954120 /* Assets.xcassets in Resources */,
+				B191E10D2206448E00FD2C59 /* BeachCellViewImpl.xib in Resources */,
 				EA80277A22045C5100954120 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,14 +362,18 @@
 				EA8027B72204610600954120 /* Endpoint.swift in Sources */,
 				EA8027B52204610600954120 /* NetworkService.swift in Sources */,
 				EA80277722045C5100954120 /* ViewController.swift in Sources */,
+				B191E1082206441900FD2C59 /* BeachCellView.swift in Sources */,
 				EA685FC52204B084003504F1 /* HTTPParametersConvertable.swift in Sources */,
 				EA8027B42204610600954120 /* NetworkRouter.swift in Sources */,
 				EA8027B62204610600954120 /* NetworkResult.swift in Sources */,
+				B191E10C2206448E00FD2C59 /* BeachCellViewImpl.swift in Sources */,
 				EA685FC32204AE29003504F1 /* AuthParameters.swift in Sources */,
 				B191E1052206328F00FD2C59 /* HTTPMethod.swift in Sources */,
 				B191E1012205FE7400FD2C59 /* AuthResponse.swift in Sources */,
 				EA80277522045C5100954120 /* AppDelegate.swift in Sources */,
 				EA8027B32204610600954120 /* UserResponse.swift in Sources */,
+				B191E11122064A6700FD2C59 /* BeachCellPresenter.swift in Sources */,
+				B191E10F220646CA00FD2C59 /* BeachCellRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +381,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B191E119220653F500FD2C59 /* BeachCellRepositoryMock.swift in Sources */,
 				EA685FBA220488D3003504F1 /* NetworkRouterMock.swift in Sources */,
+				B1426CC22206579300B93638 /* BeachCellViewMock.swift in Sources */,
 				EA8027BB22047B4000954120 /* EndpointTest.swift in Sources */,
+				B191E113220651FC00FD2C59 /* BeachCellPresenterTest.swift in Sources */,
 				EA8027B922047B3A00954120 /* NetworkServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,6 +2,7 @@ import Foundation
 @testable import HeyBeach
 
 final class NetworkRouterMock: NetworkRouter {
+  
   var responseData: Data?
   var mockHeader: [String : String]?
   var shouldReturnBadResponse: Bool = false

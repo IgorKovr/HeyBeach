@@ -1,9 +1,9 @@
 import XCTest
 @testable import HeyBeach
 
-class NetworkServiceTest: XCTestCase {
+final class NetworkServiceTest: XCTestCase {
   
-  let requestTimeout = 0.0
+  private let requestTimeout = 0.0
   
   private var service: NetworkService!
   private var router: NetworkRouterMock!
