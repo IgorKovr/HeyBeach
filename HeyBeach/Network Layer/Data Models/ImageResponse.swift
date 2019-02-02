@@ -1,0 +1,17 @@
+import Foundation
+
+struct ImageResponse {
+
+  let url: String
+  let width: String
+  let height: String
+}
+
+extension ImageResponse: Decodable {
+
+  enum CodingKeys : String, CodingKey {
+    case url = "url"
+    case width = "width"
+    case height = "height"
+  }
+}
