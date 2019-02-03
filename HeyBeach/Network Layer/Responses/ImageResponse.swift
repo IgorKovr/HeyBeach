@@ -12,6 +12,7 @@ extension ImageResponse: Decodable {
 
   enum CodingKeys : String, CodingKey {
     case url = "url"
+    case name = "name"
     case width = "width"
     case height = "height"
   }
