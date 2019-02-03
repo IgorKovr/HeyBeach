@@ -19,7 +19,8 @@ final class BeachesListPresenterTest: XCTestCase {
     presenter.onViewDidLoad()
     
     XCTAssertEqual(repository.callHistory, [.loadImages])
-    XCTAssertEqual(view.callHistory, [.showImagesList])
+    XCTAssertEqual(view.callHistory, [.configureForUserLoggedIn,
+                                      .showImagesList])
   }
   
   func testOnScrolledCloseToEnd() {
@@ -32,9 +33,30 @@ final class BeachesListPresenterTest: XCTestCase {
   func testOnErrorResponse() {
     repository.shouldFail = true
     
-    presenter.onViewDidLoad()
+    presenter.onScrolledCloseToEnd()
     
     XCTAssertEqual(repository.callHistory, [.loadImages])
     XCTAssertEqual(view.callHistory, [.showError])
+  }
+  
+  func testOnLogin() {
+    presenter.onLoginDialogEndedWith(email: "", password: "")
+    
+    XCTAssertEqual(repository.callHistory, [.login])
+    XCTAssertEqual(view.callHistory, [.configureForUserLoggedIn])
+  }
+  
+  func testOnRegister() {
+    presenter.onRegisterDialogEndedWith(email: "", password: "")
+    
+    XCTAssertEqual(repository.callHistory, [.register])
+    XCTAssertEqual(view.callHistory, [.configureForUserLoggedIn])
+  }
+  
+  func testOnLogout() {
+    presenter.onLogoutTap()
+    
+    XCTAssertEqual(repository.callHistory, [.logout])
+    XCTAssertEqual(view.callHistory, [.configureForUserLoggedIn])
   }
 }

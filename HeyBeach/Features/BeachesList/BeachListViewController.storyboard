@@ -21,22 +21,32 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MHO-Gm-BMf">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="44" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aYs-LI-Xp9">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="54" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="7Ju-Wp-Hdy" id="a7f-r2-rG9"/>
                                 </connections>
                             </collectionView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROD-4P-EPW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="hAP-nL-6LJ"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eSa-xc-L9h" firstAttribute="bottom" secondItem="MHO-Gm-BMf" secondAttribute="bottom" id="JJW-4R-ZgQ"/>
                             <constraint firstItem="MHO-Gm-BMf" firstAttribute="top" secondItem="eSa-xc-L9h" secondAttribute="top" id="KBb-05-pY0"/>
+                            <constraint firstItem="ROD-4P-EPW" firstAttribute="top" secondItem="eSa-xc-L9h" secondAttribute="top" id="LEB-aU-Ir2"/>
+                            <constraint firstItem="ROD-4P-EPW" firstAttribute="trailing" secondItem="eSa-xc-L9h" secondAttribute="trailing" id="N8Q-yn-VJ4"/>
+                            <constraint firstItem="ROD-4P-EPW" firstAttribute="leading" secondItem="eSa-xc-L9h" secondAttribute="leading" id="Q1j-dA-kf4"/>
                             <constraint firstItem="eSa-xc-L9h" firstAttribute="trailing" secondItem="MHO-Gm-BMf" secondAttribute="trailing" id="gsf-0B-fY5"/>
                             <constraint firstItem="MHO-Gm-BMf" firstAttribute="leading" secondItem="eSa-xc-L9h" secondAttribute="leading" id="jta-zj-Ib5"/>
                         </constraints>
@@ -44,11 +54,12 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="MHO-Gm-BMf" id="cSN-Z0-s5F"/>
+                        <outlet property="navigationBarItem" destination="hAP-nL-6LJ" id="pnY-KT-tx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzo-NR-sze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-975" y="-92"/>
+            <point key="canvasLocation" x="-1223" y="-94"/>
         </scene>
     </scenes>
 </document>

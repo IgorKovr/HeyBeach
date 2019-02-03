@@ -6,6 +6,7 @@ final class BeachesListViewMock: BeachesListView {
   enum CallMethods {
     case showImagesList
     case showError
+    case configureForUserLoggedIn
   }
   
   var callHistory: [CallMethods] = []
@@ -16,5 +17,9 @@ final class BeachesListViewMock: BeachesListView {
   
   func showError(description: String) {
     callHistory.append(.showError)
+  }
+  
+  func configureForUserLoggedIn(_ loggedIn: Bool) {
+    callHistory.append(.configureForUserLoggedIn)
   }
 }
