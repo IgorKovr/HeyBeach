@@ -7,7 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B110F4F62207277000823589 /* BeachesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F4F52207277000823589 /* BeachesListPresenter.swift */; };
+		B110F4F8220727CD00823589 /* BeachesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F4F7220727CD00823589 /* BeachesListRepository.swift */; };
+		B110F4FB2207293F00823589 /* BeachModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F4FA2207293F00823589 /* BeachModel.swift */; };
+		B110F4FD22072E1C00823589 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F4FC22072E1C00823589 /* NetworkError.swift */; };
+		B110F4FF2207317A00823589 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F4FE2207317A00823589 /* Error.swift */; };
+		B110F501220734FD00823589 /* BeachesListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F500220734FD00823589 /* BeachesListViewMock.swift */; };
+		B110F5032207350B00823589 /* BeachesListRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F5022207350B00823589 /* BeachesListRepositoryMock.swift */; };
+		B110F5052207351900823589 /* BeachesListPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F5042207351900823589 /* BeachesListPresenterTest.swift */; };
+		B110F50822073AD500823589 /* BeachListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F50622073AD500823589 /* BeachListViewController.swift */; };
+		B110F50B2207410700823589 /* BeachListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B110F50A2207410700823589 /* BeachListViewController.storyboard */; };
+		B110F50E2207555B00823589 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F50D2207555B00823589 /* StoryboardInstantiable.swift */; };
+		B110F510220756B500823589 /* AlertShowabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B110F50F220756B500823589 /* AlertShowabled.swift */; };
 		B1426CC22206579300B93638 /* BeachCellViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1426CC12206579300B93638 /* BeachCellViewMock.swift */; };
+		B1426CC422065DF900B93638 /* BeachesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1426CC322065DF900B93638 /* BeachesListView.swift */; };
 		B191E1012205FE7400FD2C59 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E1002205FE7400FD2C59 /* AuthResponse.swift */; };
 		B191E1052206328F00FD2C59 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E1042206328F00FD2C59 /* HTTPMethod.swift */; };
 		B191E1082206441900FD2C59 /* BeachCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B191E1072206441900FD2C59 /* BeachCellView.swift */; };
@@ -47,7 +60,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B110F4F52207277000823589 /* BeachesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachesListPresenter.swift; sourceTree = "<group>"; };
+		B110F4F7220727CD00823589 /* BeachesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachesListRepository.swift; sourceTree = "<group>"; };
+		B110F4FA2207293F00823589 /* BeachModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachModel.swift; sourceTree = "<group>"; };
+		B110F4FC22072E1C00823589 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B110F4FE2207317A00823589 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		B110F500220734FD00823589 /* BeachesListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachesListViewMock.swift; sourceTree = "<group>"; };
+		B110F5022207350B00823589 /* BeachesListRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachesListRepositoryMock.swift; sourceTree = "<group>"; };
+		B110F5042207351900823589 /* BeachesListPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachesListPresenterTest.swift; sourceTree = "<group>"; };
+		B110F50622073AD500823589 /* BeachListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachListViewController.swift; sourceTree = "<group>"; };
+		B110F50A2207410700823589 /* BeachListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BeachListViewController.storyboard; sourceTree = "<group>"; };
+		B110F50D2207555B00823589 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		B110F50F220756B500823589 /* AlertShowabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertShowabled.swift; sourceTree = "<group>"; };
 		B1426CC12206579300B93638 /* BeachCellViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellViewMock.swift; sourceTree = "<group>"; };
+		B1426CC322065DF900B93638 /* BeachesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachesListView.swift; sourceTree = "<group>"; };
 		B191E1002205FE7400FD2C59 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		B191E1042206328F00FD2C59 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		B191E1072206441900FD2C59 /* BeachCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachCellView.swift; sourceTree = "<group>"; };
@@ -98,6 +124,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B110F4F92207290A00823589 /* Domain Models */ = {
+			isa = PBXGroup;
+			children = (
+				B110F4FA2207293F00823589 /* BeachModel.swift */,
+				B110F4FE2207317A00823589 /* Error.swift */,
+			);
+			path = "Domain Models";
+			sourceTree = "<group>";
+		};
+		B110F50C2207554300823589 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B110F50D2207555B00823589 /* StoryboardInstantiable.swift */,
+				B110F50F220756B500823589 /* AlertShowabled.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B191E1022206316600FD2C59 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +154,11 @@
 			isa = PBXGroup;
 			children = (
 				B191E106220641AF00FD2C59 /* BeachCell */,
+				B1426CC322065DF900B93638 /* BeachesListView.swift */,
+				B110F4F52207277000823589 /* BeachesListPresenter.swift */,
+				B110F4F7220727CD00823589 /* BeachesListRepository.swift */,
+				B110F50622073AD500823589 /* BeachListViewController.swift */,
+				B110F50A2207410700823589 /* BeachListViewController.storyboard */,
 			);
 			path = BeachesList;
 			sourceTree = "<group>";
@@ -138,6 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				B191E1162206539300FD2C59 /* BeachesCell */,
+				B110F500220734FD00823589 /* BeachesListViewMock.swift */,
+				B110F5022207350B00823589 /* BeachesListRepositoryMock.swift */,
+				B110F5042207351900823589 /* BeachesListPresenterTest.swift */,
 			);
 			path = BeachesList;
 			sourceTree = "<group>";
@@ -201,7 +253,9 @@
 		EA80277322045C5100954120 /* HeyBeach */ = {
 			isa = PBXGroup;
 			children = (
+				B110F4F92207290A00823589 /* Domain Models */,
 				B191E1022206316600FD2C59 /* Features */,
+				B110F50C2207554300823589 /* Extensions */,
 				EA8027AA2204610500954120 /* Network Layer */,
 				EA80277422045C5100954120 /* AppDelegate.swift */,
 				EA80277622045C5100954120 /* ViewController.swift */,
@@ -227,20 +281,20 @@
 			isa = PBXGroup;
 			children = (
 				EA685FC12204AE0C003504F1 /* Parameters */,
-				EA8027AB2204610500954120 /* Data Models */,
+				EA8027AB2204610500954120 /* Responses */,
 				EA8027AE2204610500954120 /* Service */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
 		};
-		EA8027AB2204610500954120 /* Data Models */ = {
+		EA8027AB2204610500954120 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
 				EA8027AC2204610500954120 /* UserResponse.swift */,
 				EADF06362204C37C008C2505 /* ImageResponse.swift */,
 				B191E1002205FE7400FD2C59 /* AuthResponse.swift */,
 			);
-			path = "Data Models";
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		EA8027AE2204610500954120 /* Service */ = {
@@ -251,6 +305,7 @@
 				EA8027B12204610500954120 /* NetworkResult.swift */,
 				EA8027B22204610500954120 /* Endpoint.swift */,
 				B191E1042206328F00FD2C59 /* HTTPMethod.swift */,
+				B110F4FC22072E1C00823589 /* NetworkError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -340,6 +395,7 @@
 				EA80277C22045C5200954120 /* Assets.xcassets in Resources */,
 				B191E10D2206448E00FD2C59 /* BeachCellViewImpl.xib in Resources */,
 				EA80277A22045C5100954120 /* Main.storyboard in Resources */,
+				B110F50B2207410700823589 /* BeachListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,18 +417,27 @@
 				EADF06372204C37C008C2505 /* ImageResponse.swift in Sources */,
 				EA8027B72204610600954120 /* Endpoint.swift in Sources */,
 				EA8027B52204610600954120 /* NetworkService.swift in Sources */,
+				B110F4F8220727CD00823589 /* BeachesListRepository.swift in Sources */,
+				B1426CC422065DF900B93638 /* BeachesListView.swift in Sources */,
 				EA80277722045C5100954120 /* ViewController.swift in Sources */,
+				B110F50822073AD500823589 /* BeachListViewController.swift in Sources */,
 				B191E1082206441900FD2C59 /* BeachCellView.swift in Sources */,
 				EA685FC52204B084003504F1 /* HTTPParametersConvertable.swift in Sources */,
 				EA8027B42204610600954120 /* NetworkRouter.swift in Sources */,
+				B110F4FB2207293F00823589 /* BeachModel.swift in Sources */,
+				B110F4F62207277000823589 /* BeachesListPresenter.swift in Sources */,
 				EA8027B62204610600954120 /* NetworkResult.swift in Sources */,
 				B191E10C2206448E00FD2C59 /* BeachCellViewImpl.swift in Sources */,
 				EA685FC32204AE29003504F1 /* AuthParameters.swift in Sources */,
+				B110F4FF2207317A00823589 /* Error.swift in Sources */,
 				B191E1052206328F00FD2C59 /* HTTPMethod.swift in Sources */,
+				B110F4FD22072E1C00823589 /* NetworkError.swift in Sources */,
 				B191E1012205FE7400FD2C59 /* AuthResponse.swift in Sources */,
 				EA80277522045C5100954120 /* AppDelegate.swift in Sources */,
+				B110F510220756B500823589 /* AlertShowabled.swift in Sources */,
 				EA8027B32204610600954120 /* UserResponse.swift in Sources */,
 				B191E11122064A6700FD2C59 /* BeachCellPresenter.swift in Sources */,
+				B110F50E2207555B00823589 /* StoryboardInstantiable.swift in Sources */,
 				B191E10F220646CA00FD2C59 /* BeachCellRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,9 +449,12 @@
 				B191E119220653F500FD2C59 /* BeachCellRepositoryMock.swift in Sources */,
 				EA685FBA220488D3003504F1 /* NetworkRouterMock.swift in Sources */,
 				B1426CC22206579300B93638 /* BeachCellViewMock.swift in Sources */,
+				B110F5052207351900823589 /* BeachesListPresenterTest.swift in Sources */,
+				B110F5032207350B00823589 /* BeachesListRepositoryMock.swift in Sources */,
 				EA8027BB22047B4000954120 /* EndpointTest.swift in Sources */,
 				B191E113220651FC00FD2C59 /* BeachCellPresenterTest.swift in Sources */,
 				EA8027B922047B3A00954120 /* NetworkServiceTest.swift in Sources */,
+				B110F501220734FD00823589 /* BeachesListViewMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

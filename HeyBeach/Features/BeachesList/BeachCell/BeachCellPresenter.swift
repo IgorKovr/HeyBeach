@@ -15,11 +15,11 @@ final class BeachCellPresenter {
     view.configureForLoading()
   }
   
-  func onConfigure(with url: String, name: String) {
+  func onConfigure(url: String, title: String) {
     repository.loadImage(with: url) { [weak self] image in
       guard let image = image else { return }
       
-      self?.view.showImage(image, title: name)
+      self?.view.showImage(image, title: title)
     }
   }
 }

@@ -3,6 +3,9 @@ import UIKit
 final class BeachCellViewImpl: UICollectionViewCell, BeachCellView {
   
   static let reuseIdentifier = "BeachCellView"
+  static var nib: UINib {
+    return UINib(nibName: "\(self)", bundle:nil)
+  }
 
   @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
   @IBOutlet weak var imageView: UIImageView!
@@ -10,20 +13,21 @@ final class BeachCellViewImpl: UICollectionViewCell, BeachCellView {
   
   private var presenter: BeachCellPresenter!
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
-    presenter = BeachCellPresenter(with: self)
-  }
-  
   override func prepareForReuse() {
     super.prepareForReuse()
     
     presenter.onPrepareForReuse()
   }
   
-  func configure(with url: String, name: String) {
-    presenter.onConfigure(with: url, name: name)
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    
+    presenter = BeachCellPresenter(with: self)
+  }
+  
+  func configure(url: String, title: String) {
+    
+    presenter.onConfigure(url: url, title: title)
   }
   
   // MARK: BeachCellView
@@ -34,9 +38,10 @@ final class BeachCellViewImpl: UICollectionViewCell, BeachCellView {
     titleLabel.text = ""
   }
   
-  func showImage(_: UIImage, title: String) {
+  func showImage(_ image: UIImage, title: String) {
     loadingIndicator.stopAnimating()
     imageView.isHidden = false
+    imageView.image = image
     titleLabel.text = title
   }
 }

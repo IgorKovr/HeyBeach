@@ -25,7 +25,7 @@ final class BeachCellPresenterTest: XCTestCase {
   func testOnConfigure() {
     repository.mockResponse = UIImage()
     
-    presenter.onConfigure(with: "", name: "")
+    presenter.onConfigure(url: "", title: "")
     
     XCTAssertEqual(repository.callHistory, [.loadImage])
     XCTAssertEqual(view.callHistory, [.showImage])
