@@ -85,7 +85,7 @@ struct NetworkService {
       
       // Check for invalid response from the server
       guard let response = (response as? HTTPURLResponse),
-        response.statusCode == 200 else {
+        200...299 ~= response.statusCode else {
           completion(.failure(.api))
           return
       }
@@ -97,6 +97,28 @@ struct NetworkService {
       }
       
       completion(.success(data))
+    }
+  }
+
+  private func requestWithEmptyResponse(endpoint: Endpoint,
+                                        parameters: HTTPParametersConvertable? = nil,
+                                        completion: @escaping (NetworkResultEmpty) ->()) {
+    networkRouter.request(endpoint, parameters: parameters) { (data, response, error) in
+
+      // Check for Network error
+      guard error == nil else {
+        completion(.failure(.network))
+        return
+      }
+
+      // Check for invalid response from the server
+      guard let response = (response as? HTTPURLResponse),
+        200...299 ~= response.statusCode else {
+          completion(.failure(.api))
+          return
+      }
+
+      completion(.success)
     }
   }
 }
@@ -123,5 +145,10 @@ extension NetworkService {
   func downloadImage(url: String, completion: @escaping (NetworkResult<Data>) ->()) {
     dataRequest(endpoint: .image(url: url),
                 completion: completion)
+  }
+  
+  func logout(token: String, completion: @escaping (NetworkResultEmpty) ->()) {
+    requestWithEmptyResponse(endpoint: .logout(token: token),
+                             completion: completion)
   }
 }

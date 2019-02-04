@@ -1,11 +1,13 @@
 import Foundation
 
+typealias HTTPHeader = [String: String]
+
 enum Endpoint {
   
   case login
   case register
   case user
-  case logout
+  case logout(token: String)
   case beaches(page: UInt)
   case image(url: String)
 }
@@ -28,6 +30,17 @@ extension Endpoint {
     case .logout: return .delete
     case .beaches: return .get
     case .image: return .get
+    }
+  }
+
+  var httpHeader: HTTPHeader? {
+    switch self {
+    case let .logout(token): return ["x-auth": token]
+    case .login,
+         .register:
+      return ["Content-type": "application/json"]
+    default:
+      return nil
     }
   }
   

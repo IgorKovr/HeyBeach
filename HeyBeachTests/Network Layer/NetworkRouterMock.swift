@@ -4,7 +4,7 @@ import Foundation
 final class NetworkRouterMock: NetworkRouter {
   
   var responseData: Data?
-  var mockHeader: [String : String]?
+  var mockHeaderResponse: [String : String]?
   var shouldReturnBadResponse: Bool = false
   var cancelRequestWasCalled: Bool = false
   
@@ -29,7 +29,7 @@ final class NetworkRouterMock: NetworkRouter {
     let response = HTTPURLResponse(url: route.url,
                                    statusCode: shouldReturnBadResponse ? badResponseCode : goodResponseCode,
                                    httpVersion: "",
-                                   headerFields: mockHeader)
+                                   headerFields: mockHeaderResponse)
     completion(responseData, response, nil)
   }
 }

@@ -18,9 +18,12 @@ protocol BeachesListRepository {
 final class BeachesListRepositoryImpl: BeachesListRepository {
   
   private let networkService: NetworkService
+//  private let storage: Storage
 
   init(with networkService: NetworkService = NetworkService()) {
+//       storage: Storage
     self.networkService = networkService
+//    self.storage = storage
   }
 
   func loadImages(at page: UInt, onSuccess: @escaping ([BeachModel]) -> Void, onError: @escaping (Error) -> Void) {
@@ -63,18 +66,14 @@ final class BeachesListRepositoryImpl: BeachesListRepository {
   
   func logout(onSuccess: @escaping () -> Void,
               onError: @escaping (Error) -> Void) {
-    
-    // TODO
-    
-    onSuccess()
-    
-//    networkService.logout() { result in
-//      switch result {
-//      case .success:
-//        onSuccess()
-//      case let .failure(networkError):
-//        onError(Error(networkError))
-//      }
-//    }
+    // TODO: Fetch token from storage
+    networkService.logout(token: "") { result in
+      switch result {
+      case .success:
+        onSuccess()
+      case let .failure(networkError):
+        onError(Error(networkError))
+      }
+    }
   }
 }

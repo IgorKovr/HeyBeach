@@ -36,13 +36,10 @@ final class NetworkRouterImpl: NetworkRouter {
   
   private func buildRequest(from route: Endpoint,
                             parameters: HTTPParametersConvertable?) throws -> URLRequest {
-    var request = URLRequest(url: route.url,
-                             timeoutInterval: timeoutInterval)
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    var request = URLRequest(url: route.url, timeoutInterval: timeoutInterval)
+    request.allHTTPHeaderFields = route.httpHeader
     request.httpMethod = route.httpMethod.rawValue
-    if let parameters = parameters {
-      request.httpBody = try parameters.httpParameters()
-    }
+    request.httpBody = try parameters?.httpParameters()
     return request
   }
 }
