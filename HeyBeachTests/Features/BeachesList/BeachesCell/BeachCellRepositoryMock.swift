@@ -11,12 +11,18 @@ final class BeachCellRepositoryMock: BeachCellRepository {
   var callHistory: [CallMethods] = []
   var shouldFail: Bool = false
   var mockResponse: UIImage?
+  var mockCachedImage: UIImage?
   
   func stopLoading() {
     callHistory.append(.stopLoading)
   }
+
+  func fetch(image url: String, from cache: ImageCache) -> UIImage? {
+    return mockCachedImage
+  }
   
-  func loadImage(with url: String, completion: (UIImage?) -> Void) {
+  func loadImage(with url: String, cache: ImageCache,
+                 completion: (UIImage?) -> Void) {
     if shouldFail {
       completion(nil)
     } else {

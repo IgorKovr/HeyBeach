@@ -25,9 +25,9 @@ final class BeachCellViewImpl: UICollectionViewCell, BeachCellView {
     presenter = BeachCellPresenter(with: self)
   }
   
-  func configure(url: String, title: String) {
+  func configure(url: String, title: String, cache: ImageCache) {
     
-    presenter.onConfigure(url: url, title: title)
+    presenter.onConfigure(url: url, title: title, cache: cache)
   }
   
   // MARK: BeachCellView
@@ -38,7 +38,7 @@ final class BeachCellViewImpl: UICollectionViewCell, BeachCellView {
     titleLabel.text = ""
   }
   
-  func showImage(_ image: UIImage, title: String) {
+  func showImage(_ image: UIImage?, title: String) {
     loadingIndicator.stopAnimating()
     imageView.isHidden = false
     imageView.image = image

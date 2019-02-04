@@ -19,15 +19,24 @@ final class BeachCellPresenterTest: XCTestCase {
     presenter.onPrepareForReuse()
     
     XCTAssertEqual(repository.callHistory, [.stopLoading])
-    XCTAssertEqual(view.callHistory, [.configureForLoading])
   }
   
   func testOnConfigure() {
     repository.mockResponse = UIImage()
     
-    presenter.onConfigure(url: "", title: "")
+    presenter.onConfigure(url: "", title: "", cache: ImageCache())
     
     XCTAssertEqual(repository.callHistory, [.loadImage])
+    XCTAssertEqual(view.callHistory, [.configureForLoading,
+                                      .showImage])
+  }
+
+  func testOnConfigureWithCachedImage() {
+    repository.mockCachedImage = UIImage()
+
+    presenter.onConfigure(url: "", title: "", cache: ImageCache())
+
+    XCTAssertEqual(repository.callHistory, [])
     XCTAssertEqual(view.callHistory, [.showImage])
   }
 }

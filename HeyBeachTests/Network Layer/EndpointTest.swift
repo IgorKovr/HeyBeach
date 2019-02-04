@@ -11,7 +11,7 @@ final class EndpointTest: XCTestCase {
     endpoint = .beaches(page: 999)
   }
 
-  func testArtworkListURL() {
+  func testBeachesURL() {
     XCTAssertEqual(endpoint.url.absoluteString,
                    "http://techtest.lab1886.io:3000/beaches?page=999")
   }

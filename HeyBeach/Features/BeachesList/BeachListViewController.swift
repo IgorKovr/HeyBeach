@@ -5,6 +5,7 @@ final class BeachListViewController: UIViewController, BeachesListView, Storyboa
   private let itemsLeftToLoadNewPage = 5
   private var presenter: BeachesListPresenter!
   private var beachesList = [BeachModel]()
+  private let imageCache = ImageCache()
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var navigationBarItem: UINavigationItem!
   
@@ -67,7 +68,7 @@ extension BeachListViewController: UICollectionViewDataSource, UICollectionViewD
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BeachCellViewImpl.reuseIdentifier,
                                                   for: indexPath) as! BeachCellViewImpl
     let beachModel = beachesList[indexPath.item]
-    cell.configure(url: beachModel.url, title: beachModel.title)
+    cell.configure(url: beachModel.url, title: beachModel.title, cache: imageCache)
     return cell
   }
 

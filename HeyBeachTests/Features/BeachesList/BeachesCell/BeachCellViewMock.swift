@@ -14,7 +14,7 @@ final class BeachCellViewMock: BeachCellView {
     callHistory.append(.configureForLoading)
   }
   
-  func showImage(_: UIImage, title: String) {
+  func showImage(_: UIImage?, title: String) {
     callHistory.append(.showImage)
   }
 }
