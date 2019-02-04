@@ -47,6 +47,8 @@
 		EA8027B922047B3A00954120 /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8027B822047B3A00954120 /* NetworkServiceTest.swift */; };
 		EA8027BB22047B4000954120 /* EndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8027BA22047B4000954120 /* EndpointTest.swift */; };
 		EADF06372204C37C008C2505 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF06362204C37C008C2505 /* ImageResponse.swift */; };
+		EADF063A22088690008C2505 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF063922088690008C2505 /* Storage.swift */; };
+		EADF063C2208875C008C2505 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADF063B2208875C008C2505 /* KeychainStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		EA8027B822047B3A00954120 /* NetworkServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
 		EA8027BA22047B4000954120 /* EndpointTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTest.swift; sourceTree = "<group>"; };
 		EADF06362204C37C008C2505 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
+		EADF063922088690008C2505 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		EADF063B2208875C008C2505 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +260,7 @@
 				B110F4F92207290A00823589 /* Domain Models */,
 				B191E1022206316600FD2C59 /* Features */,
 				B110F50C2207554300823589 /* Extensions */,
+				EADF063822088644008C2505 /* Storages */,
 				EA8027AA2204610500954120 /* Network Layer */,
 				EA80277422045C5100954120 /* AppDelegate.swift */,
 				EA80277622045C5100954120 /* ViewController.swift */,
@@ -308,6 +313,15 @@
 				B110F4FC22072E1C00823589 /* NetworkError.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		EADF063822088644008C2505 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				EADF063922088690008C2505 /* Storage.swift */,
+				EADF063B2208875C008C2505 /* KeychainStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +436,7 @@
 				EA80277722045C5100954120 /* ViewController.swift in Sources */,
 				B110F50822073AD500823589 /* BeachListViewController.swift in Sources */,
 				B191E1082206441900FD2C59 /* BeachCellView.swift in Sources */,
+				EADF063C2208875C008C2505 /* KeychainStorage.swift in Sources */,
 				EA685FC52204B084003504F1 /* HTTPParametersConvertable.swift in Sources */,
 				EA8027B42204610600954120 /* NetworkRouter.swift in Sources */,
 				B110F4FB2207293F00823589 /* BeachModel.swift in Sources */,
@@ -439,6 +454,7 @@
 				B191E11122064A6700FD2C59 /* BeachCellPresenter.swift in Sources */,
 				B110F50E2207555B00823589 /* StoryboardInstantiable.swift in Sources */,
 				B191E10F220646CA00FD2C59 /* BeachCellRepository.swift in Sources */,
+				EADF063A22088690008C2505 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,9 @@ final class BeachesListRepositoryMock: BeachesListRepository {
     case register
     case logout
   }
-  
+
+  var hasSavedToken = false
+
   var callHistory: [CallMethods] = []
   var shouldFail: Bool = false
   var mockResponse: [BeachModel]?
@@ -24,22 +26,22 @@ final class BeachesListRepositoryMock: BeachesListRepository {
     callHistory.append(.loadImages)
   }
   
-  func login(email: String, password: String, onSuccess: @escaping (String) -> Void,
+  func login(email: String, password: String, onSuccess: @escaping () -> Void,
              onError: @escaping (HeyBeach.Error) -> Void) {
     if shouldFail {
       onError(HeyBeach.Error(NetworkError.api))
     } else {
-      onSuccess("")
+      onSuccess()
     }
     callHistory.append(.login)
   }
   
-  func register(email: String, password: String, onSuccess: @escaping (String) -> Void,
+  func register(email: String, password: String, onSuccess: @escaping () -> Void,
                 onError: @escaping (HeyBeach.Error) -> Void) {
     if shouldFail {
       onError(HeyBeach.Error(NetworkError.api))
     } else {
-      onSuccess("")
+      onSuccess()
     }
     callHistory.append(.register)
   }

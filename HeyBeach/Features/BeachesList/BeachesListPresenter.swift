@@ -5,7 +5,6 @@ final class BeachesListPresenter {
   unowned private let view: BeachesListView
   private let repository: BeachesListRepository
   private var currentPage: UInt = 0
-  private var isUserLoggedIn = false
   
   init(with view: BeachesListView, repository: BeachesListRepository = BeachesListRepositoryImpl()) {
     self.view = view
@@ -13,7 +12,7 @@ final class BeachesListPresenter {
   }
   
   func onViewDidLoad() {
-    view.configureForUserLoggedIn(isUserLoggedIn)
+    view.configureForUserLoggedIn(repository.hasSavedToken)
     load(page: 0)
   }
   
@@ -27,8 +26,7 @@ final class BeachesListPresenter {
       return
     }
     
-    repository.login(email: email, password: password, onSuccess: { [weak self] token in
-      self?.saveToken(token)
+    repository.login(email: email, password: password, onSuccess: { [weak self] in
       self?.view.configureForUserLoggedIn(true)
     }) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
@@ -40,8 +38,7 @@ final class BeachesListPresenter {
       return
     }
     
-    repository.register(email: email, password: password, onSuccess: { [weak self] token in
-      self?.saveToken(token)
+    repository.register(email: email, password: password, onSuccess: { [weak self] in
       self?.view.configureForUserLoggedIn(true)
     }) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
@@ -49,27 +46,17 @@ final class BeachesListPresenter {
   }
   
   func onLogoutTap() {
-    repository.logout(onSuccess: { [weak self] in
-      self?.removeToken()
-      self?.view.configureForUserLoggedIn(false)
-    }) { [weak self] error in
+    view.configureForUserLoggedIn(false)
+    repository.logout(onSuccess: {}) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
     }
   }
   
   private func load(page: UInt) {
-    repository.loadImages(at: 0, onSuccess: { [weak self] beachesList in
+    repository.loadImages(at: page, onSuccess: { [weak self] beachesList in
       self?.view.showBeaches(beachesList)
     }) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
     }
-  }
-  
-  private func saveToken(_ token: String) {
-    // TODO: Save Token
-  }
-  
-  private func removeToken() {
-    // TODO: Remove Token
   }
 }
