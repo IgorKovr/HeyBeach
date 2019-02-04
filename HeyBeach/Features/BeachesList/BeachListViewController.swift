@@ -1,7 +1,8 @@
 import UIKit
 
 final class BeachListViewController: UIViewController, BeachesListView, StoryboardInstantiable, AlertShowable {
-  
+
+  private let itemsLeftToLoadNewPage = 5
   private var presenter: BeachesListPresenter!
   private var beachesList = [BeachModel]()
   @IBOutlet weak var collectionView: UICollectionView!
@@ -23,8 +24,11 @@ final class BeachListViewController: UIViewController, BeachesListView, Storyboa
   // MARK: BeachesListView
   
   func showBeaches(_ list: [BeachModel]) {
+    guard !list.isEmpty else { return }
+
+    let oldItemsCount = beachesList.count
     beachesList += list
-    collectionView.reloadData()
+    updateCollectionViewForNewItems(oldItemsCount: oldItemsCount)
   }
   
   func showError(description: String) {
@@ -42,9 +46,18 @@ final class BeachListViewController: UIViewController, BeachesListView, Storyboa
   private func configureCollectionView() {
     collectionView.register(BeachCellViewImpl.nib, forCellWithReuseIdentifier: BeachCellViewImpl.reuseIdentifier)
   }
+
+  private func updateCollectionViewForNewItems(oldItemsCount: Int) {
+    collectionView.performBatchUpdates({
+      let insertIndexPaths = Array(oldItemsCount..<beachesList.count).map {
+        IndexPath(item: $0, section: 0)
+      }
+      collectionView.insertItems(at: insertIndexPaths)
+    }, completion: nil)
+  }
 }
 
-extension BeachListViewController: UICollectionViewDataSource {
+extension BeachListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return beachesList.count
@@ -56,6 +69,12 @@ extension BeachListViewController: UICollectionViewDataSource {
     let beachModel = beachesList[indexPath.item]
     cell.configure(url: beachModel.url, title: beachModel.title)
     return cell
+  }
+
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    if (indexPath.row >= beachesList.count - 1 - itemsLeftToLoadNewPage) {
+      presenter.onScrolledCloseToEnd()
+    }
   }
 }
 

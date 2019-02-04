@@ -31,6 +31,7 @@
                                 <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="7Ju-Wp-Hdy" id="a7f-r2-rG9"/>
+                                    <outlet property="delegate" destination="7Ju-Wp-Hdy" id="LMc-Yr-eAH"/>
                                 </connections>
                             </collectionView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROD-4P-EPW">
@@ -59,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jzo-NR-sze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1223" y="-94"/>
+            <point key="canvasLocation" x="-1334" y="-94"/>
         </scene>
     </scenes>
 </document>
