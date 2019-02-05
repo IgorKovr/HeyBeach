@@ -1,6 +1,6 @@
 import Foundation
 
-public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Swift.Error?)->()
+typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Swift.Error?)->()
 
 protocol NetworkRouter: class {
   
@@ -12,7 +12,7 @@ protocol NetworkRouter: class {
 final class NetworkRouterImpl: NetworkRouter {
   
   private var task: URLSessionTask?
-  private let timeoutInterval = 10.0
+  private let timeoutInterval = 60.0
   
   func cancelRequest() {
     task?.cancel()

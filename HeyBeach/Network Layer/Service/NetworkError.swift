@@ -5,4 +5,5 @@ enum NetworkError: Swift.Error {
   case api
   case noData
   case unableToDecode
+  case canceled
 }

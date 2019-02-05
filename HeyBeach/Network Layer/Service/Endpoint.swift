@@ -6,7 +6,6 @@ enum Endpoint {
   
   case login
   case register
-  case user
   case logout(token: String)
   case beaches(page: UInt)
   case image(url: String)
@@ -26,7 +25,6 @@ extension Endpoint {
     switch self {
     case .register: return .post
     case .login: return .post
-    case .user: return .get
     case .logout: return .delete
     case .beaches: return .get
     case .image: return .get
@@ -50,7 +48,6 @@ extension Endpoint {
     switch self {
     case .register: return "user/register"
     case .login: return "user/login"
-    case .user: return "user/me"
     case .logout: return "user/logout"
     case let .beaches(page): return "beaches?page=\(page)"
     case let .image(url): return url

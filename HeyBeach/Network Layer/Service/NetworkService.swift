@@ -1,36 +1,56 @@
 import Foundation
 
 struct NetworkService {
-  
+
   private let networkRouter: NetworkRouter
-  
+
   init(networkRouter: NetworkRouter = NetworkRouterImpl()) {
     self.networkRouter = networkRouter
   }
-  
+
   func cancelRequest() {
     networkRouter.cancelRequest()
   }
+
+  func userLogin(with parameters: AuthParameters, completion: @escaping (NetworkResult<AuthResponse>) ->()) {
+    authRequest(endpoint: .login,
+                parameters: parameters,
+                completion: completion)
+  }
+
+  func logout(token: String, completion: @escaping (NetworkResultEmpty) ->()) {
+    requestWithEmptyResponse(endpoint: .logout(token: token),
+                             completion: completion)
+  }
+
+  func userRegister(with parameters: AuthParameters, completion: @escaping (NetworkResult<AuthResponse>) ->()) {
+    authRequest(endpoint: .register,
+                parameters: parameters,
+                completion: completion)
+  }
+
+  func fetchImagesList(page: UInt, completion: @escaping (NetworkResult<[ImageResponse]>) ->()) {
+    request(endpoint: .beaches(page: page),
+            completion: completion)
+  }
+
+  func downloadImage(url: String, completion: @escaping (NetworkResult<Data>) ->()) {
+    dataRequest(endpoint: .image(url: url),
+                completion: completion)
+  }
+}
+
+private extension NetworkService {
   
   private func request<T>(endpoint: Endpoint,
                           parameters: HTTPParametersConvertable? = nil,
                           completion: @escaping (NetworkResult<T>) ->()) where T : Decodable {
     networkRouter.request(endpoint, parameters: parameters) { (data, response, error) in
-      
-      // Check for Network error
-      guard error == nil else {
-        completion(.failure(.network))
+      if let error = self.buildError(response, error: error) {
+        completion(.failure(error))
         return
       }
 
-      // Check for invalid response from the server
-      guard let response = (response as? HTTPURLResponse),
-        200...299 ~= response.statusCode else {
-          completion(.failure(.api))
-          return
-      }
-      
-      // Check for empty response
       guard let data = data else {
         completion(.failure(.noData))
         return
@@ -49,21 +69,13 @@ struct NetworkService {
                            parameters: HTTPParametersConvertable? = nil,
                            completion: @escaping (NetworkResult<AuthResponse>) ->()) {
     networkRouter.request(endpoint, parameters: parameters) { (data, response, error) in
-      
-      // Check for Network error
-      guard error == nil else {
-        completion(.failure(.network))
+      if let error = self.buildError(response, error: error) {
+        completion(.failure(error))
         return
       }
       
-      // Check for invalid response from the server
       guard let response = (response as? HTTPURLResponse),
-        response.statusCode == 200 else {
-          completion(.failure(.api))
-          return
-      }
-      
-      guard let token = response.allHeaderFields[AuthResponse.tokenKey] as? String else {
+        let token = response.allHeaderFields[AuthResponse.tokenKey] as? String else {
         completion(.failure(.unableToDecode))
         return
       }
@@ -76,21 +88,11 @@ struct NetworkService {
                            parameters: HTTPParametersConvertable? = nil,
                            completion: @escaping (NetworkResult<Data>) ->()) {
     networkRouter.request(endpoint, parameters: parameters) { (data, response, error) in
-      
-      // Check for Network error
-      guard error == nil else {
-        completion(.failure(.network))
+      if let error = self.buildError(response, error: error) {
+        completion(.failure(error))
         return
       }
-      
-      // Check for invalid response from the server
-      guard let response = (response as? HTTPURLResponse),
-        200...299 ~= response.statusCode else {
-          completion(.failure(.api))
-          return
-      }
-      
-      // Check for empty response
+
       guard let data = data else {
         completion(.failure(.noData))
         return
@@ -104,51 +106,29 @@ struct NetworkService {
                                         parameters: HTTPParametersConvertable? = nil,
                                         completion: @escaping (NetworkResultEmpty) ->()) {
     networkRouter.request(endpoint, parameters: parameters) { (data, response, error) in
-
-      // Check for Network error
-      guard error == nil else {
-        completion(.failure(.network))
+      if let error = self.buildError(response, error: error) {
+        completion(.failure(error))
         return
-      }
-
-      // Check for invalid response from the server
-      guard let response = (response as? HTTPURLResponse),
-        200...299 ~= response.statusCode else {
-          completion(.failure(.api))
-          return
       }
 
       completion(.success)
     }
   }
-}
 
-extension NetworkService {
+  private func buildError(_ response: URLResponse?, error: Swift.Error?) -> NetworkError? {
+    if let error = error as NSError?, error.code == NSURLErrorCancelled {
+      return .canceled
+    }
 
-  func userLogin(with parameters: AuthParameters, completion: @escaping (NetworkResult<AuthResponse>) ->()) {
-    authRequest(endpoint: .login,
-                parameters: parameters,
-                completion: completion)
-  }
+    guard error == nil else {
+      return .network
+    }
 
-  func userRegister(with parameters: AuthParameters, completion: @escaping (NetworkResult<AuthResponse>) ->()) {
-    authRequest(endpoint: .register,
-                parameters: parameters,
-                completion: completion)
-  }
+    guard let response = (response as? HTTPURLResponse),
+      200...299 ~= response.statusCode else {
+        return .api
+    }
 
-  func fetchImagesList(page: UInt, completion: @escaping (NetworkResult<[ImageResponse]>) ->()) {
-    request(endpoint: .beaches(page: page),
-            completion: completion)
-  }
-  
-  func downloadImage(url: String, completion: @escaping (NetworkResult<Data>) ->()) {
-    dataRequest(endpoint: .image(url: url),
-                completion: completion)
-  }
-  
-  func logout(token: String, completion: @escaping (NetworkResultEmpty) ->()) {
-    requestWithEmptyResponse(endpoint: .logout(token: token),
-                             completion: completion)
+    return nil
   }
 }

@@ -4,15 +4,15 @@ final class Error: Swift.Error {
   
   private enum ErrorState {
     case network
-    case request
+    case generic
   }
   
   private let state: ErrorState
   
   init(_ networkError: NetworkError) {
     switch networkError {
-    case .api, .noData, .unableToDecode:
-      state = .request
+    case .api, .noData, .unableToDecode, .canceled:
+      state = .generic
     case .network:
       state = .network
     }
@@ -20,7 +20,7 @@ final class Error: Swift.Error {
   
   var localizedDescription: String {
     switch state {
-    case .request:
+    case .generic:
       return "Oops, something went wrong"
     case .network:
       return "Please check your internet connection"

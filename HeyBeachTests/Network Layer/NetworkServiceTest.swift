@@ -3,7 +3,7 @@ import XCTest
 
 final class NetworkServiceTest: XCTestCase {
   
-  private let requestTimeout = 10.0
+  private let requestTimeout = 0.0
   
   private var service: NetworkService!
   private var router: NetworkRouterMock!
@@ -42,7 +42,6 @@ final class NetworkServiceTest: XCTestCase {
     service.userRegister(with: parameters) { result in
       switch result {
       case let .success(response):
-        print(response)
         XCTAssertEqual(response.token, "token")
       case let .failure(error):
         XCTFail(error.localizedDescription)

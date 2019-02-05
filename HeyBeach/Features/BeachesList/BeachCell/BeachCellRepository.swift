@@ -34,7 +34,10 @@ final class BeachCellRepositoryImpl: BeachCellRepository {
         let image = UIImage(data: data)
         self?.cacheImage(image, url, cache: cache)
         completion(image)
-      case .failure: completion(nil)
+      case let .failure(error):
+        guard error != .canceled else { return }
+
+        completion(nil)
       }
     }
   }
