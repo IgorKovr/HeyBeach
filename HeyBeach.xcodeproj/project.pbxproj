@@ -35,8 +35,6 @@
 		EA685FC32204AE29003504F1 /* AuthParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685FC22204AE29003504F1 /* AuthParameters.swift */; };
 		EA685FC52204B084003504F1 /* HTTPParametersConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685FC42204B084003504F1 /* HTTPParametersConvertable.swift */; };
 		EA80277522045C5100954120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80277422045C5100954120 /* AppDelegate.swift */; };
-		EA80277722045C5100954120 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA80277622045C5100954120 /* ViewController.swift */; };
-		EA80277A22045C5100954120 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA80277822045C5100954120 /* Main.storyboard */; };
 		EA80277C22045C5200954120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA80277B22045C5200954120 /* Assets.xcassets */; };
 		EA80277F22045C5200954120 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA80277D22045C5200954120 /* LaunchScreen.storyboard */; };
 		EA8027B32204610600954120 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8027AC2204610500954120 /* UserResponse.swift */; };
@@ -91,8 +89,6 @@
 		EA685FC42204B084003504F1 /* HTTPParametersConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParametersConvertable.swift; sourceTree = "<group>"; };
 		EA80277122045C5100954120 /* HeyBeach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyBeach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA80277422045C5100954120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA80277622045C5100954120 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EA80277922045C5100954120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA80277B22045C5200954120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA80277E22045C5200954120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA80278022045C5200954120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -263,8 +259,6 @@
 				EADF063822088644008C2505 /* Storages */,
 				EA8027AA2204610500954120 /* Network Layer */,
 				EA80277422045C5100954120 /* AppDelegate.swift */,
-				EA80277622045C5100954120 /* ViewController.swift */,
-				EA80277822045C5100954120 /* Main.storyboard */,
 				EA80277B22045C5200954120 /* Assets.xcassets */,
 				EA80277D22045C5200954120 /* LaunchScreen.storyboard */,
 				EA80278022045C5200954120 /* Info.plist */,
@@ -408,7 +402,6 @@
 				EA80277F22045C5200954120 /* LaunchScreen.storyboard in Resources */,
 				EA80277C22045C5200954120 /* Assets.xcassets in Resources */,
 				B191E10D2206448E00FD2C59 /* BeachCellViewImpl.xib in Resources */,
-				EA80277A22045C5100954120 /* Main.storyboard in Resources */,
 				B110F50B2207410700823589 /* BeachListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +426,6 @@
 				EA8027B52204610600954120 /* NetworkService.swift in Sources */,
 				B110F4F8220727CD00823589 /* BeachesListRepository.swift in Sources */,
 				B1426CC422065DF900B93638 /* BeachesListView.swift in Sources */,
-				EA80277722045C5100954120 /* ViewController.swift in Sources */,
 				B110F50822073AD500823589 /* BeachListViewController.swift in Sources */,
 				B191E1082206441900FD2C59 /* BeachCellView.swift in Sources */,
 				EADF063C2208875C008C2505 /* KeychainStorage.swift in Sources */,
@@ -485,14 +477,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EA80277822045C5100954120 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA80277922045C5100954120 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EA80277D22045C5200954120 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
