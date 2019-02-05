@@ -14,7 +14,9 @@ final class BeachesListRepositoryMock: BeachesListRepository {
 
   var callHistory: [CallMethods] = []
   var shouldFail: Bool = false
-  var mockResponse: [BeachModel]?
+  var mockResponse: [BeachModel]? = [
+    BeachModel(url: "", title: "", width: "", height: "")
+  ]
   
   func loadImages(at page: UInt, onSuccess: @escaping ([BeachModel]) -> Void,
                   onError: @escaping (HeyBeach.Error) -> Void) {

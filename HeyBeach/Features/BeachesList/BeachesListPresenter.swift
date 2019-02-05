@@ -12,7 +12,7 @@ final class BeachesListPresenter {
   }
   
   func onViewDidLoad() {
-    view.configureForUserLoggedIn(repository.hasSavedToken)
+    view.configureForUser(isLoggedIn: repository.hasSavedToken)
     load(page: 0)
   }
   
@@ -27,7 +27,7 @@ final class BeachesListPresenter {
     }
     
     repository.login(email: email, password: password, onSuccess: { [weak self] in
-      self?.view.configureForUserLoggedIn(true)
+      self?.view.configureForUser(isLoggedIn: true)
     }) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
     }
@@ -39,14 +39,14 @@ final class BeachesListPresenter {
     }
     
     repository.register(email: email, password: password, onSuccess: { [weak self] in
-      self?.view.configureForUserLoggedIn(true)
+      self?.view.configureForUser(isLoggedIn: true)
     }) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
     }
   }
   
   func onLogoutTap() {
-    view.configureForUserLoggedIn(false)
+    view.configureForUser(isLoggedIn: false)
     repository.logout(onSuccess: {}) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)
     }
@@ -54,6 +54,8 @@ final class BeachesListPresenter {
   
   private func load(page: UInt) {
     repository.loadImages(at: page, onSuccess: { [weak self] beachesList in
+      guard !beachesList.isEmpty else { return }
+
       self?.view.showBeaches(beachesList)
     }) { [weak self] error in
       self?.view.showError(description: error.localizedDescription)

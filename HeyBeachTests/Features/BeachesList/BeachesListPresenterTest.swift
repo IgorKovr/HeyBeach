@@ -29,6 +29,15 @@ final class BeachesListPresenterTest: XCTestCase {
     XCTAssertEqual(repository.callHistory, [.loadImages])
     XCTAssertEqual(view.callHistory, [.showImagesList])
   }
+
+  func testOnScrolledCloseToEndEmptyResponse() {
+    repository.mockResponse = []
+
+    presenter.onScrolledCloseToEnd()
+
+    XCTAssertEqual(repository.callHistory, [.loadImages])
+    XCTAssertEqual(view.callHistory, [])
+  }
   
   func testOnErrorResponse() {
     repository.shouldFail = true

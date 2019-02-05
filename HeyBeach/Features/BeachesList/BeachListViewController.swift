@@ -25,8 +25,6 @@ final class BeachListViewController: UIViewController, BeachesListView, Storyboa
   // MARK: BeachesListView
   
   func showBeaches(_ list: [BeachModel]) {
-    guard !list.isEmpty else { return }
-
     let oldItemsCount = beachesList.count
     beachesList += list
     updateCollectionViewForNewItems(oldItemsCount: oldItemsCount)
@@ -36,8 +34,8 @@ final class BeachListViewController: UIViewController, BeachesListView, Storyboa
     showAlert(message: description)
   }
   
-  func configureForUserLoggedIn(_ loggedIn: Bool) {
-    if loggedIn {
+  func configureForUser(isLoggedIn: Bool) {
+    if isLoggedIn {
       createLogoutElements()
     } else {
       createLoginElements()
@@ -72,7 +70,8 @@ extension BeachListViewController: UICollectionViewDataSource, UICollectionViewD
     return cell
   }
 
-  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
+                      forItemAt indexPath: IndexPath) {
     if (indexPath.row >= beachesList.count - 1 - itemsLeftToLoadNewPage) {
       presenter.onScrolledCloseToEnd()
     }
@@ -123,11 +122,8 @@ private extension BeachListViewController {
       action: #selector(logoutTap)
     )
   }
-}
-
-private extension BeachListViewController {
   
-  func showAuthAlert(title: String, onActionTap: @escaping (String?, String?) -> Void) {
+  private func showAuthAlert(title: String, onActionTap: @escaping (String?, String?) -> Void) {
     let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
     let authAction = UIAlertAction(
       title: title,

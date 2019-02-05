@@ -19,7 +19,7 @@ final class BeachesListViewMock: BeachesListView {
     callHistory.append(.showError)
   }
   
-  func configureForUserLoggedIn(_ loggedIn: Bool) {
+  func configureForUser(isLoggedIn: Bool) {
     callHistory.append(.configureForUserLoggedIn)
   }
 }
